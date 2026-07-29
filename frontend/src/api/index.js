@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const api = axios.create({ baseURL: '/api' });
+const api = axios.create({ baseURL: 'https://environment-enx2.onrender.com/api' });
 
 // Attach token
 api.interceptors.request.use(cfg => {
