@@ -30,8 +30,8 @@ export default function Copilot() {
       const res = await copilotAPI.chat(text, selectedCity);
       setContext(res.data.context);
       setMessages(m => [...m, { role: 'ai', text: res.data.response }]);
-    } catch {
-      setMessages(m => [...m, { role: 'ai', text: '⚠️ Backend offline. Please ensure the FastAPI server is running on port 8000.' }]);
+    } catch (error) {
+      setMessages(m => [...m, { role: 'ai', text: '⚠️ Backend connection failed. Please try again later.' }]);
     } finally {
       setLoading(false);
     }
